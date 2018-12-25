@@ -15,24 +15,24 @@ def spin():
     # wheel_chance = randint(1, 8)
     global a1, a2, a3, b1, b2, b3, c1, c2, c3, d1, d2, d3, f1, f2, f3
     # Reel 1
-    a1 = randint(1, 128)  # Line 2 (array 0)
-    a2 = randint(1, 128)  # Line 1 (array 1) NOTE: CANT HAVE WILD
-    a3 = randint(1, 128)  # Line 3 (array 2)
+    a1 = randint(1, 128)  # Line 2 (array 0) NOTE: CANT HAVE WILD
+    a2 = randint(1, 128)  # Line 1 (array 1)  NOTE: CANT HAVE WILD
+    a3 = randint(1, 128)  # Line 3 (array 2) NOTE: CANT HAVE WILD
     # Reel 2
     b1 = randint(1, 128)  # Line 2 (array 3)
-    b2 = randint(1, 128)  # Line 1 (array 4) NOTE: CANT HAVE WILD
+    b2 = randint(1, 128)  # Line 1 (array 4) 
     b3 = randint(1, 128)  # Line 3 (array 5)
     # Reel 3
     c1 = randint(1, 128)  # Line 2 (array 6)
-    c2 = randint(1, 128)  # Line 1 (array 7) NOTE: CANT HAVE WILD
+    c2 = randint(1, 128)  # Line 1 (array 7) 
     c3 = randint(1, 128)  # Line 3 (array 8)
     # Reel 4
     d1 = randint(1, 128)  # Line 2 (array 9)
-    d2 = randint(1, 128)  # Line 1 (array 10) NOTE: CANT HAVE WILD
+    d2 = randint(1, 128)  # Line 1 (array 10) 
     d3 = randint(1, 128)  # Line 3 (array 11)
     # Reel 5
     f1 = randint(1, 128)  # Line 2 (array 12)
-    f2 = randint(1, 128)  # Line 1 (array 13) NOTE: CANT HAVE WILD
+    f2 = randint(1, 128)  # Line 1 (array 13) 
     f3 = randint(1, 128)  # Line 3 (array 14)
 
     # # Change the lable text
@@ -388,41 +388,164 @@ def check_wheel():
             reel_section[1].config(text='Nine')
         else:
             print('Please Spin')
-    # check_for_feature()
+    check_for_feature()
     line1()
+def check_for_feature():
+    reel_text[1][1]
 
 # Checking line 1 for matching items
 def line1():
-    queens = 0
+    ace = 0
+    king = 0
+    queen = 0
+    jack = 0
+    ten = 0
+    nine = 0
 
-    if reel_text[1][1]["text"] == "Queen":
-        queens = queens + 1
-        if reel_text[4][1]["text"] == "Queen":
-            queens = queens + 1
-            if reel_text[7][1]["text"] == "Queen":
-                queens = queens + 1
-                if reel_text[10][1]["text"] == "Queen":
-                    queens = queens + 1
-                    if reel_text[13][1]["text"] == "Queen":
-                        queens = queens + 1
-                        print(queens)
-                        # print("Add 7 Credits")
-                        calculate_credit(7)
+    symbols = [["Ace", ace], ["King", king], ["Queen", queen], ["Jack", jack], ["Ten", ten], ["Nine", nine]]
+    for symbols in symbols:
+        # print(symbols[0])
+        if reel_text[1][1]["text"] == symbols[0]: # reel 1 
+            symbols[1] = symbols[1] + 1
+            if reel_text[4][1]["text"] == symbols[0]:  # reel 2
+                symbols[1] = symbols[1] + 1
+                if reel_text[7][1]["text"] == symbols[0]:
+                    symbols[1] = symbols[1] + 1
+                    if reel_text[10][1]["text"] == symbols[0]:
+                        symbols[1] = symbols[1] + 1
+                        if reel_text[13][1]["text"] == symbols[0]:
+                            symbols[1] = symbols[1] + 1
+                            calculate_credit(7)
+                        elif reel_text[13][1]["text"] == "Wild":
+                            symbols[1] = symbols[1] + 1
+                            calculate_credit(7)
+                        else:
+                            # print("Add 6 Credits")
+                            calculate_credit(6)
+                            print(symbols[1])
+                    elif reel_text[10][1]["text"] == "Wild":
+                        symbols[1] = symbols[1] + 1
+                        if reel_text[13][1]["text"] == symbols[0]:
+                            symbols[1] = symbols[1] + 1
+                            calculate_credit(7)
+                        elif reel_text[13][1]["text"] == "Wild":
+                            symbols[1] = symbols[1] + 1
+                            calculate_credit(7)
                     else:
-                        # print("Add 6 Credits")
-                        calculate_credit(6)
+                        # print("Add 5 Credits")
+                        calculate_credit(5)
+                        print(symbols[1])
+                elif reel_text[7][1]["text"] == "Wild":
+                    symbols[1] = symbols[1] + 1 
+                    if reel_text[10][1]["text"] == symbols[0]:
+                        symbols[1] = symbols[1] + 1
+                        if reel_text[13][1]["text"] == symbols[0]:
+                            symbols[1] = symbols[1] + 1
+                            print(symbols[1])
+                            calculate_credit(7)
+                        elif reel_text[13][1]["text"] == "Wild":
+                            symbols[1] = symbols[1] + 1
+                            print(symbols[1])
+                            calculate_credit(7)
+                        else:
+                            # print("Add 6 Credits")
+                            calculate_credit(6)
+                            print(symbols[1])              
+                    elif reel_text[10][1]["text"] == "Wild":
+                        symbols[1] = symbols[1] + 1
+                        if reel_text[13][1]["text"] == symbols[0]:
+                            symbols[1] = symbols[1] + 1
+                            print(symbols[1])
+                            calculate_credit(7)
+                        elif reel_text[13][1]["text"] == "Wild":
+                            symbols[1] = symbols[1] + 1
+                            print(symbols[1])
+                            calculate_credit(7)
+                        else:
+                            # print("Add 6 Credits")
+                            calculate_credit(6)
+                            print(symbols[1])     
+                    else:
+                        # print("Add 5 Credits")
+                        calculate_credit(5)
                 else:
-                    # print("Add 5 Credits")
-                    calculate_credit(5)
+                    print("No Win")
+                    print(symbols[1])
+            elif reel_text[4][1]["text"] == "Wild":
+                symbols[1] = symbols[1] + 1
+                if reel_text[7][1]["text"] == symbols[0]:
+                    symbols[1] = symbols[1] + 1
+                    print("Reel 3")
+                    if reel_text[10][1]["text"] == symbols[0]:
+                        symbols[1] = symbols[1] + 1
+                        print("Reel 4")
+                        if reel_text[13][1]["text"] == symbols[0]:
+                            symbols[1] = symbols[1] + 1
+                            print(symbols[1])
+                            calculate_credit(7)
+                        elif reel_text[13][1]["text"] == "Wild":
+                            symbols[1] = symbols[1] + 1
+                            print(symbols[1])
+                            calculate_credit(7)
+                        else:
+                            # print("Add 6 Credits")
+                            calculate_credit(6)
+                    elif reel_text[10][1]["text"] == "Wild":
+                        symbols[1] = symbols[1] + 1
+                        if reel_text[13][1]["text"] == symbols[0]:
+                            symbols[1] = symbols[1] + 1
+                            print(symbols[1])
+                            calculate_credit(7)
+                        elif reel_text[13][1]["text"] == "Wild":
+                            symbols[1] = symbols[1] + 1
+                            print(symbols[1])
+                            calculate_credit(7)
+                        else:
+                            # print("Add 6 Credits")
+                            calculate_credit(6)
+                    else:
+                        # print("Add 5 Credits")
+                        calculate_credit(5)
+                elif reel_text[7][1]["text"] == "Wild":
+                    symbols[1] = symbols[1] + 1 
+                    if reel_text[10][1]["text"] == symbols[0]:
+                        symbols[1] = symbols[1] + 1
+                        if reel_text[13][1]["text"] == symbols[0]:
+                            symbols[1] = symbols[1] + 1
+                            print(symbols[1])
+                            calculate_credit(7)
+                        elif reel_text[13][1]["text"] == "Wild":
+                            symbols[1] = symbols[1] + 1
+                            print(symbols[1])
+                            calculate_credit(7)
+                        else:
+                            # print("Add 6 Credits")
+                            calculate_credit(6)
+                    elif reel_text[10][1]["text"] == "Wild":
+                        symbols[1] = symbols[1] + 1
+                        if reel_text[13][1]["text"] == symbols[0]:
+                            symbols[1] = symbols[1] + 1
+                            print(symbols[1])
+                            calculate_credit(7)
+                        elif reel_text[13][1]["text"] == "Wild":
+                            symbols[1] = symbols[1] + 1
+                            print(symbols[1])
+                            calculate_credit(7)
+                        else:
+                            # print("Add 6 Credits")
+                            calculate_credit(6)
+                    else:
+                        # print("Add 5 Credits")
+                        calculate_credit(5)
+                else:
+                    print("No Win")
+                    print(symbols[1])
             else:
                 print("No Win")
-                print(queens)
+                print(symbols[1])
         else:
-            print("No Win")
-            print(queens)
-    else:
-        print("NO Win")
-        print(queens)
+            print("NO Win")
+            print(symbols[0], ':', symbols[1])
 
 # Adds x amount of credits to the users credits
 def calculate_credit(How_many_credit_to_add):
