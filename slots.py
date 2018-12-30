@@ -15,25 +15,25 @@ def spin():
     # wheel_chance = randint(1, 8)
     global a1, a2, a3, b1, b2, b3, c1, c2, c3, d1, d2, d3, f1, f2, f3
     # Reel 1
-    a1 = randint(1, 128)  # Line 2 (array 0) NOTE: CANT HAVE WILD
-    a2 = randint(1, 128)  # Line 1 (array 1)  NOTE: CANT HAVE WILD
-    a3 = randint(1, 128)  # Line 3 (array 2) NOTE: CANT HAVE WILD
+    a1 = randint(2, 2)  # Line 2 (array 0) NOTE: CANT HAVE WILD
+    a2 = randint(2, 2)  # Line 1 (array 1)  NOTE: CANT HAVE WILD
+    a3 = randint(2, 2)  # Line 3 (array 2) NOTE: CANT HAVE WILD
     # Reel 2
-    b1 = randint(1, 128)  # Line 2 (array 3)
-    b2 = randint(1, 128)  # Line 1 (array 4) 
-    b3 = randint(1, 128)  # Line 3 (array 5)
+    b1 = randint(2, 2)  # Line 2 (array 3)
+    b2 = randint(2, 2)  # Line 1 (array 4) 
+    b3 = randint(2, 2)  # Line 3 (array 5)
     # Reel 3
-    c1 = randint(1, 128)  # Line 2 (array 6)
-    c2 = randint(1, 128)  # Line 1 (array 7) 
-    c3 = randint(1, 128)  # Line 3 (array 8)
+    c1 = randint(2, 2)  # Line 2 (array 6)
+    c2 = randint(2, 2)  # Line 1 (array 7) 
+    c3 = randint(2, 2)  # Line 3 (array 8)
     # Reel 4
-    d1 = randint(1, 128)  # Line 2 (array 9)
-    d2 = randint(1, 128)  # Line 1 (array 10) 
-    d3 = randint(1, 128)  # Line 3 (array 11)
+    d1 = randint(2, 2)  # Line 2 (array 9)
+    d2 = randint(2, 2)  # Line 1 (array 10) 
+    d3 = randint(2, 2)  # Line 3 (array 11)
     # Reel 5
-    f1 = randint(1, 128)  # Line 2 (array 12)
-    f2 = randint(1, 128)  # Line 1 (array 13) 
-    f3 = randint(1, 128)  # Line 3 (array 14)
+    f1 = randint(2, 2)  # Line 2 (array 12)
+    f2 = randint(2, 2)  # Line 1 (array 13) 
+    f3 = randint(2, 2)  # Line 3 (array 14)
 
     # # Change the lable text
 # ==============================================================
@@ -426,6 +426,7 @@ def check_wheel():
         # line7()
     else:
         pass
+
 def check_for_feature():
     pass
 
@@ -445,31 +446,31 @@ def line1():
             symbols[1] = symbols[1] + 1
             if reel_text[4][1]["text"] == symbols[0]:  # reel 2
                 symbols[1] = symbols[1] + 1
-                if reel_text[7][1]["text"] == symbols[0]:
+                if reel_text[7][1]["text"] == symbols[0]: # reel 3
                     symbols[1] = symbols[1] + 1
-                    if reel_text[10][1]["text"] == symbols[0]:
+                    if reel_text[10][1]["text"] == symbols[0]:  # reel 4
                         symbols[1] = symbols[1] + 1
-                        if reel_text[13][1]["text"] == symbols[0]:
+                        if reel_text[13][1]["text"] == symbols[0]:  # reel 5
                             symbols[1] = symbols[1] + 1
-                            payout_table(symbols[0], 7)
+                            payout_table(symbols[0], 5)
                         elif reel_text[13][1]["text"] == "Wild":
                             symbols[1] = symbols[1] + 1
-                            payout_table(symbols[0], 7)
+                            payout_table(symbols[0], 5)
                         else:
                             # print("Add 6 Credits")
-                            payout_table(symbols[0], 6)
+                            payout_table(symbols[0], 4)
                             print(symbols[1])
                     elif reel_text[10][1]["text"] == "Wild":
                         symbols[1] = symbols[1] + 1
                         if reel_text[13][1]["text"] == symbols[0]:
                             symbols[1] = symbols[1] + 1
-                            payout_table(symbols[0], 7)
+                            payout_table(symbols[0], 5)
                         elif reel_text[13][1]["text"] == "Wild":
                             symbols[1] = symbols[1] + 1
-                            payout_table(symbols[0], 7)
+                            payout_table(symbols[0], 5)
                     else:
                         # print("Add 5 Credits")
-                        payout_table(symbols[0], 5)
+                        payout_table(symbols[0], 3)
                         print(symbols[1])
                 elif reel_text[7][1]["text"] == "Wild":
                     symbols[1] = symbols[1] + 1 
@@ -478,32 +479,32 @@ def line1():
                         if reel_text[13][1]["text"] == symbols[0]:
                             symbols[1] = symbols[1] + 1
                             print(symbols[1])
-                            payout_table(symbols[0], 7)
+                            payout_table(symbols[0], 5)
                         elif reel_text[13][1]["text"] == "Wild":
                             symbols[1] = symbols[1] + 1
                             print(symbols[1])
-                            payout_table(symbols[0], 7)
+                            payout_table(symbols[0], 5)
                         else:
                             # print("Add 6 Credits")
-                            payout_table(symbols[0], 6)
+                            payout_table(symbols[0], 4)
                             print(symbols[1])              
                     elif reel_text[10][1]["text"] == "Wild":
                         symbols[1] = symbols[1] + 1
                         if reel_text[13][1]["text"] == symbols[0]:
                             symbols[1] = symbols[1] + 1
                             print(symbols[1])
-                            payout_table(symbols[0], 7)
+                            payout_table(symbols[0], 5)
                         elif reel_text[13][1]["text"] == "Wild":
                             symbols[1] = symbols[1] + 1
                             print(symbols[1])
-                            payout_table(symbols[0], 7)
+                            payout_table(symbols[0], 5)
                         else:
                             # print("Add 6 Credits")
-                            payout_table(symbols[0], 6)
+                            payout_table(symbols[0], 4)
                             print(symbols[1])     
                     else:
                         # print("Add 5 Credits")
-                        payout_table(symbols[0], 5)
+                        payout_table(symbols[0], 3)
                 else:
                     print("No Win")
                     print(symbols[1])
@@ -518,30 +519,30 @@ def line1():
                         if reel_text[13][1]["text"] == symbols[0]:
                             symbols[1] = symbols[1] + 1
                             print(symbols[1])
-                            payout_table(symbols[0], 7)
+                            payout_table(symbols[0], 5)
                         elif reel_text[13][1]["text"] == "Wild":
                             symbols[1] = symbols[1] + 1
                             print(symbols[1])
-                            payout_table(symbols[0], 7)
+                            payout_table(symbols[0], 5)
                         else:
                             # print("Add 6 Credits")
-                            payout_table(symbols[0], 6)
+                            payout_table(symbols[0], 4)
                     elif reel_text[10][1]["text"] == "Wild":
                         symbols[1] = symbols[1] + 1
                         if reel_text[13][1]["text"] == symbols[0]:
                             symbols[1] = symbols[1] + 1
                             print(symbols[1])
-                            payout_table(symbols[0], 7)
+                            payout_table(symbols[0], 5)
                         elif reel_text[13][1]["text"] == "Wild":
                             symbols[1] = symbols[1] + 1
                             print(symbols[1])
-                            payout_table(symbols[0], 7)
+                            payout_table(symbols[0], 5)
                         else:
                             # print("Add 6 Credits")
-                            payout_table(symbols[0], 6)
+                            payout_table(symbols[0], 4)
                     else:
                         # print("Add 5 Credits")
-                        payout_table(symbols[0], 5)
+                        payout_table(symbols[0], 3)
                 elif reel_text[7][1]["text"] == "Wild":
                     symbols[1] = symbols[1] + 1 
                     if reel_text[10][1]["text"] == symbols[0]:
@@ -549,30 +550,30 @@ def line1():
                         if reel_text[13][1]["text"] == symbols[0]:
                             symbols[1] = symbols[1] + 1
                             print(symbols[1])
-                            payout_table(symbols[0], 7)
+                            payout_table(symbols[0], 5)
                         elif reel_text[13][1]["text"] == "Wild":
                             symbols[1] = symbols[1] + 1
                             print(symbols[1])
-                            payout_table(symbols[0], 7)
+                            payout_table(symbols[0], 5)
                         else:
                             # print("Add 6 Credits")
-                            payout_table(symbols[0], 6)
+                            payout_table(symbols[0], 4)
                     elif reel_text[10][1]["text"] == "Wild":
                         symbols[1] = symbols[1] + 1
                         if reel_text[13][1]["text"] == symbols[0]:
                             symbols[1] = symbols[1] + 1
                             print(symbols[1])
-                            payout_table(symbols[0], 7)
+                            payout_table(symbols[0], 5)
                         elif reel_text[13][1]["text"] == "Wild":
                             symbols[1] = symbols[1] + 1
                             print(symbols[1])
-                            payout_table(symbols[0], 7)
+                            payout_table(symbols[0], 5)
                         else:
                             # print("Add 6 Credits")
-                            payout_table(symbols[0], 6)
+                            payout_table(symbols[0], 4)
                     else:
                         # print("Add 5 Credits")
-                        payout_table(symbols[0], 5)
+                        payout_table(symbols[0], 3)
                 else:
                     print("No Win")
                     print(symbols[1])
@@ -607,25 +608,25 @@ def line2():
                         symbols[1] = symbols[1] + 1
                         if reel_text[12][1]["text"] == symbols[0]:
                             symbols[1] = symbols[1] + 1
-                            payout_table(symbols[0], 7)
+                            payout_table(symbols[0], 5)
                         elif reel_text[12][1]["text"] == "Wild":
                             symbols[1] = symbols[1] + 1
-                            payout_table(symbols[0], 7)
+                            payout_table(symbols[0], 5)
                         else:
                             # print("Add 6 Credits")
-                            payout_table(symbols[0], 6)
+                            payout_table(symbols[0], 4)
                             print(symbols[1])
                     elif reel_text[9][1]["text"] == "Wild":
                         symbols[1] = symbols[1] + 1
                         if reel_text[12][1]["text"] == symbols[0]:
                             symbols[1] = symbols[1] + 1
-                            payout_table(symbols[0], 7)
+                            payout_table(symbols[0], 5)
                         elif reel_text[12][1]["text"] == "Wild":
                             symbols[1] = symbols[1] + 1
-                            payout_table(symbols[0], 7)
+                            payout_table(symbols[0], 5)
                     else:
                         # print("Add 5 Credits")
-                        payout_table(symbols[0], 5)
+                        payout_table(symbols[0], 3)
                         print(symbols[1])
                 elif reel_text[6][1]["text"] == "Wild":
                     symbols[1] = symbols[1] + 1 
@@ -634,32 +635,32 @@ def line2():
                         if reel_text[12][1]["text"] == symbols[0]:
                             symbols[1] = symbols[1] + 1
                             print(symbols[1])
-                            payout_table(symbols[0], 7)
+                            payout_table(symbols[0], 5)
                         elif reel_text[12][1]["text"] == "Wild":
                             symbols[1] = symbols[1] + 1
                             print(symbols[1])
-                            payout_table(symbols[0], 7)
+                            payout_table(symbols[0], 5)
                         else:
                             # print("Add 6 Credits")
-                            payout_table(symbols[0], 6)
+                            payout_table(symbols[0], 4)
                             print(symbols[1])              
                     elif reel_text[9][1]["text"] == "Wild":
                         symbols[1] = symbols[1] + 1
                         if reel_text[12][1]["text"] == symbols[0]:
                             symbols[1] = symbols[1] + 1
                             print(symbols[1])
-                            payout_table(symbols[0], 7)
+                            payout_table(symbols[0], 5)
                         elif reel_text[12][1]["text"] == "Wild":
                             symbols[1] = symbols[1] + 1
                             print(symbols[1])
-                            payout_table(symbols[0], 7)
+                            payout_table(symbols[0], 5)
                         else:
                             # print("Add 6 Credits")
-                            payout_table(symbols[0], 6)
+                            payout_table(symbols[0], 4)
                             print(symbols[1])     
                     else:
                         # print("Add 5 Credits")
-                        payout_table(symbols[0], 5)
+                        payout_table(symbols[0], 3)
                 else:
                     print("No Win")
                     print(symbols[1])
@@ -674,30 +675,30 @@ def line2():
                         if reel_text[12][1]["text"] == symbols[0]:
                             symbols[1] = symbols[1] + 1
                             print(symbols[1])
-                            payout_table(symbols[0], 7)
+                            payout_table(symbols[0], 5)
                         elif reel_text[12][1]["text"] == "Wild":
                             symbols[1] = symbols[1] + 1
                             print(symbols[1])
-                            payout_table(symbols[0], 7)
+                            payout_table(symbols[0], 5)
                         else:
                             # print("Add 6 Credits")
-                            payout_table(symbols[0], 6)
+                            payout_table(symbols[0], 4)
                     elif reel_text[9][1]["text"] == "Wild":
                         symbols[1] = symbols[1] + 1
                         if reel_text[12][1]["text"] == symbols[0]:
                             symbols[1] = symbols[1] + 1
                             print(symbols[1])
-                            payout_table(symbols[0], 7)
+                            payout_table(symbols[0], 5)
                         elif reel_text[12][1]["text"] == "Wild":
                             symbols[1] = symbols[1] + 1
                             print(symbols[1])
-                            payout_table(symbols[0], 7)
+                            payout_table(symbols[0], 5)
                         else:
                             # print("Add 6 Credits")
-                            payout_table(symbols[0], 6)
+                            payout_table(symbols[0], 4)
                     else:
                         # print("Add 5 Credits")
-                        payout_table(symbols[0], 5)
+                        payout_table(symbols[0], 3)
                 elif reel_text[6][1]["text"] == "Wild":
                     symbols[1] = symbols[1] + 1 
                     if reel_text[9][1]["text"] == symbols[0]:
@@ -705,30 +706,30 @@ def line2():
                         if reel_text[12][1]["text"] == symbols[0]:
                             symbols[1] = symbols[1] + 1
                             print(symbols[1])
-                            payout_table(symbols[0], 7)
+                            payout_table(symbols[0], 5)
                         elif reel_text[12][1]["text"] == "Wild":
                             symbols[1] = symbols[1] + 1
                             print(symbols[1])
-                            payout_table(symbols[0], 7)
+                            payout_table(symbols[0], 5)
                         else:
                             # print("Add 6 Credits")
-                            payout_table(symbols[0], 6)
+                            payout_table(symbols[0], 4)
                     elif reel_text[9][1]["text"] == "Wild":
                         symbols[1] = symbols[1] + 1
                         if reel_text[12][1]["text"] == symbols[0]:
                             symbols[1] = symbols[1] + 1
                             print(symbols[1])
-                            payout_table(symbols[0], 7)
+                            payout_table(symbols[0], 5)
                         elif reel_text[12][1]["text"] == "Wild":
                             symbols[1] = symbols[1] + 1
                             print(symbols[1])
-                            payout_table(symbols[0], 7)
+                            payout_table(symbols[0], 5)
                         else:
                             # print("Add 6 Credits")
-                            payout_table(symbols[0], 6)
+                            payout_table(symbols[0], 4)
                     else:
                         # print("Add 5 Credits")
-                        payout_table(symbols[0], 5)
+                        payout_table(symbols[0], 3)
                 else:
                     print("No Win")
                     print(symbols[1])
@@ -761,25 +762,25 @@ def line3():
                         symbols[1] = symbols[1] + 1
                         if reel_text[14][1]["text"] == symbols[0]:
                             symbols[1] = symbols[1] + 1
-                            payout_table(symbols[0], 7)
+                            payout_table(symbols[0], 5)
                         elif reel_text[14][1]["text"] == "Wild":
                             symbols[1] = symbols[1] + 1
-                            payout_table(symbols[0], 7)
+                            payout_table(symbols[0], 5)
                         else:
                             # print("Add 6 Credits")
-                            payout_table(symbols[0], 6)
+                            payout_table(symbols[0], 4)
                             print(symbols[1])
                     elif reel_text[11][1]["text"] == "Wild":
                         symbols[1] = symbols[1] + 1
                         if reel_text[14][1]["text"] == symbols[0]:
                             symbols[1] = symbols[1] + 1
-                            payout_table(symbols[0], 7)
+                            payout_table(symbols[0], 5)
                         elif reel_text[14][1]["text"] == "Wild":
                             symbols[1] = symbols[1] + 1
-                            payout_table(symbols[0], 7)
+                            payout_table(symbols[0], 5)
                     else:
                         # print("Add 5 Credits")
-                        payout_table(symbols[0], 5)
+                        payout_table(symbols[0], 3)
                         print(symbols[1])
                 elif reel_text[8][1]["text"] == "Wild":
                     symbols[1] = symbols[1] + 1 
@@ -788,32 +789,32 @@ def line3():
                         if reel_text[14][1]["text"] == symbols[0]:
                             symbols[1] = symbols[1] + 1
                             print(symbols[1])
-                            payout_table(symbols[0], 7)
+                            payout_table(symbols[0], 5)
                         elif reel_text[14][1]["text"] == "Wild":
                             symbols[1] = symbols[1] + 1
                             print(symbols[1])
-                            payout_table(symbols[0], 7)
+                            payout_table(symbols[0], 5)
                         else:
                             # print("Add 6 Credits")
-                            payout_table(symbols[0], 6)
+                            payout_table(symbols[0], 4)
                             print(symbols[1])              
                     elif reel_text[11][1]["text"] == "Wild":
                         symbols[1] = symbols[1] + 1
                         if reel_text[14][1]["text"] == symbols[0]:
                             symbols[1] = symbols[1] + 1
                             print(symbols[1])
-                            payout_table(symbols[0], 7)
+                            payout_table(symbols[0], 5)
                         elif reel_text[14][1]["text"] == "Wild":
                             symbols[1] = symbols[1] + 1
                             print(symbols[1])
-                            payout_table(symbols[0], 7)
+                            payout_table(symbols[0], 5)
                         else:
                             # print("Add 6 Credits")
-                            payout_table(symbols[0], 6)
+                            payout_table(symbols[0], 4)
                             print(symbols[1])     
                     else:
                         # print("Add 5 Credits")
-                        payout_table(symbols[0], 5)
+                        payout_table(symbols[0], 3)
                 else:
                     print("No Win")
                     print(symbols[1])
@@ -828,30 +829,30 @@ def line3():
                         if reel_text[14][1]["text"] == symbols[0]:
                             symbols[1] = symbols[1] + 1
                             print(symbols[1])
-                            payout_table(symbols[0], 7)
+                            payout_table(symbols[0], 5)
                         elif reel_text[14][1]["text"] == "Wild":
                             symbols[1] = symbols[1] + 1
                             print(symbols[1])
-                            payout_table(symbols[0], 7)
+                            payout_table(symbols[0], 5)
                         else:
                             # print("Add 6 Credits")
-                            payout_table(symbols[0], 6)
+                            payout_table(symbols[0], 4)
                     elif reel_text[11][1]["text"] == "Wild":
                         symbols[1] = symbols[1] + 1
                         if reel_text[14][1]["text"] == symbols[0]:
                             symbols[1] = symbols[1] + 1
                             print(symbols[1])
-                            payout_table(symbols[0], 7)
+                            payout_table(symbols[0], 5)
                         elif reel_text[15][1]["text"] == "Wild":
                             symbols[1] = symbols[1] + 1
                             print(symbols[1])
-                            payout_table(symbols[0], 7)
+                            payout_table(symbols[0], 5)
                         else:
                             # print("Add 6 Credits")
-                            payout_table(symbols[0], 6)
+                            payout_table(symbols[0], 4)
                     else:
                         # print("Add 5 Credits")
-                        payout_table(symbols[0], 5)
+                        payout_table(symbols[0], 3)
                 elif reel_text[8][1]["text"] == "Wild":
                     symbols[1] = symbols[1] + 1 
                     if reel_text[11][1]["text"] == symbols[0]:
@@ -859,30 +860,30 @@ def line3():
                         if reel_text[14][1]["text"] == symbols[0]:
                             symbols[1] = symbols[1] + 1
                             print(symbols[1])
-                            payout_table(symbols[0], 7)
+                            payout_table(symbols[0], 5)
                         elif reel_text[14][1]["text"] == "Wild":
                             symbols[1] = symbols[1] + 1
                             print(symbols[1])
-                            payout_table(symbols[0], 7)
+                            payout_table(symbols[0], 5)
                         else:
                             # print("Add 6 Credits")
-                            payout_table(symbols[0], 6)
+                            payout_table(symbols[0], 4)
                     elif reel_text[11][1]["text"] == "Wild":
                         symbols[1] = symbols[1] + 1
                         if reel_text[14][1]["text"] == symbols[0]:
                             symbols[1] = symbols[1] + 1
                             print(symbols[1])
-                            payout_table(symbols[0], 7)
+                            payout_table(symbols[0], 5)
                         elif reel_text[14][1]["text"] == "Wild":
                             symbols[1] = symbols[1] + 1
                             print(symbols[1])
-                            payout_table(symbols[0], 7)
+                            payout_table(symbols[0], 5)
                         else:
                             # print("Add 6 Credits")
-                            payout_table(symbols[0], 6)
+                            payout_table(symbols[0], 4)
                     else:
                         # print("Add 5 Credits")
-                        payout_table(symbols[0], 5)
+                        payout_table(symbols[0], 3)
                 else:
                     print("No Win")
                     print(symbols[1])
@@ -915,25 +916,25 @@ def line4():
                         symbols[1] = symbols[1] + 1
                         if reel_text[14][1]["text"] == symbols[0]:
                             symbols[1] = symbols[1] + 1
-                            payout_table(symbols[0], 7)
+                            payout_table(symbols[0], 5)
                         elif reel_text[14][1]["text"] == "Wild":
                             symbols[1] = symbols[1] + 1
-                            payout_table(symbols[0], 7)
+                            payout_table(symbols[0], 5)
                         else:
                             # print("Add 6 Credits")
-                            payout_table(symbols[0], 6)
+                            payout_table(symbols[0], 4)
                             print(symbols[1])
                     elif reel_text[11][1]["text"] == "Wild":
                         symbols[1] = symbols[1] + 1
                         if reel_text[14][1]["text"] == symbols[0]:
                             symbols[1] = symbols[1] + 1
-                            payout_table(symbols[0], 7)
+                            payout_table(symbols[0], 5)
                         elif reel_text[14][1]["text"] == "Wild":
                             symbols[1] = symbols[1] + 1
-                            payout_table(symbols[0], 7)
+                            payout_table(symbols[0], 5)
                     else:
                         # print("Add 5 Credits")
-                        payout_table(symbols[0], 5)
+                        payout_table(symbols[0], 3)
                         print(symbols[1])
                 elif reel_text[8][1]["text"] == "Wild":
                     symbols[1] = symbols[1] + 1 
@@ -942,32 +943,32 @@ def line4():
                         if reel_text[14][1]["text"] == symbols[0]:
                             symbols[1] = symbols[1] + 1
                             print(symbols[1])
-                            payout_table(symbols[0], 7)
+                            payout_table(symbols[0], 5)
                         elif reel_text[14][1]["text"] == "Wild":
                             symbols[1] = symbols[1] + 1
                             print(symbols[1])
-                            payout_table(symbols[0], 7)
+                            payout_table(symbols[0], 5)
                         else:
                             # print("Add 6 Credits")
-                            payout_table(symbols[0], 6)
+                            payout_table(symbols[0], 4)
                             print(symbols[1])              
                     elif reel_text[11][1]["text"] == "Wild":
                         symbols[1] = symbols[1] + 1
                         if reel_text[14][1]["text"] == symbols[0]:
                             symbols[1] = symbols[1] + 1
                             print(symbols[1])
-                            payout_table(symbols[0], 7)
+                            payout_table(symbols[0], 5)
                         elif reel_text[14][1]["text"] == "Wild":
                             symbols[1] = symbols[1] + 1
                             print(symbols[1])
-                            payout_table(symbols[0], 7)
+                            payout_table(symbols[0], 5)
                         else:
                             # print("Add 6 Credits")
-                            payout_table(symbols[0], 6)
+                            payout_table(symbols[0], 4)
                             print(symbols[1])     
                     else:
                         # print("Add 5 Credits")
-                        payout_table(symbols[0], 5)
+                        payout_table(symbols[0], 3)
                 else:
                     print("No Win")
                     print(symbols[1])
@@ -982,30 +983,30 @@ def line4():
                         if reel_text[14][1]["text"] == symbols[0]:
                             symbols[1] = symbols[1] + 1
                             print(symbols[1])
-                            payout_table(symbols[0], 7)
+                            payout_table(symbols[0], 5)
                         elif reel_text[14][1]["text"] == "Wild":
                             symbols[1] = symbols[1] + 1
                             print(symbols[1])
-                            payout_table(symbols[0], 7)
+                            payout_table(symbols[0], 5)
                         else:
                             # print("Add 6 Credits")
-                            payout_table(symbols[0], 6)
+                            payout_table(symbols[0], 4)
                     elif reel_text[11][1]["text"] == "Wild":
                         symbols[1] = symbols[1] + 1
                         if reel_text[14][1]["text"] == symbols[0]:
                             symbols[1] = symbols[1] + 1
                             print(symbols[1])
-                            payout_table(symbols[0], 7)
+                            payout_table(symbols[0], 5)
                         elif reel_text[15][1]["text"] == "Wild":
                             symbols[1] = symbols[1] + 1
                             print(symbols[1])
-                            payout_table(symbols[0], 7)
+                            payout_table(symbols[0], 5)
                         else:
                             # print("Add 6 Credits")
-                            payout_table(symbols[0], 6)
+                            payout_table(symbols[0], 4)
                     else:
                         # print("Add 5 Credits")
-                        payout_table(symbols[0], 5)
+                        payout_table(symbols[0], 3)
                 elif reel_text[8][1]["text"] == "Wild":
                     symbols[1] = symbols[1] + 1 
                     if reel_text[11][1]["text"] == symbols[0]:
@@ -1013,30 +1014,30 @@ def line4():
                         if reel_text[14][1]["text"] == symbols[0]:
                             symbols[1] = symbols[1] + 1
                             print(symbols[1])
-                            payout_table(symbols[0], 7)
+                            payout_table(symbols[0], 5)
                         elif reel_text[14][1]["text"] == "Wild":
                             symbols[1] = symbols[1] + 1
                             print(symbols[1])
-                            payout_table(symbols[0], 7)
+                            payout_table(symbols[0], 5)
                         else:
                             # print("Add 6 Credits")
-                            payout_table(symbols[0], 6)
+                            payout_table(symbols[0], 4)
                     elif reel_text[11][1]["text"] == "Wild":
                         symbols[1] = symbols[1] + 1
                         if reel_text[14][1]["text"] == symbols[0]:
                             symbols[1] = symbols[1] + 1
                             print(symbols[1])
-                            payout_table(symbols[0], 7)
+                            payout_table(symbols[0], 5)
                         elif reel_text[14][1]["text"] == "Wild":
                             symbols[1] = symbols[1] + 1
                             print(symbols[1])
-                            payout_table(symbols[0], 7)
+                            payout_table(symbols[0], 5)
                         else:
                             # print("Add 6 Credits")
-                            payout_table(symbols[0], 6)
+                            payout_table(symbols[0], 4)
                     else:
                         # print("Add 5 Credits")
-                        payout_table(symbols[0], 5)
+                        payout_table(symbols[0], 3)
                 else:
                     print("No Win")
                     print(symbols[1])
@@ -1069,25 +1070,25 @@ def line5():
                         symbols[1] = symbols[1] + 1
                         if reel_text[14][1]["text"] == symbols[0]:
                             symbols[1] = symbols[1] + 1
-                            payout_table(symbols[0], 7)
+                            payout_table(symbols[0], 5)
                         elif reel_text[14][1]["text"] == "Wild":
                             symbols[1] = symbols[1] + 1
-                            payout_table(symbols[0], 7)
+                            payout_table(symbols[0], 5)
                         else:
                             # print("Add 6 Credits")
-                            payout_table(symbols[0], 6)
+                            payout_table(symbols[0], 4)
                             print(symbols[1])
                     elif reel_text[11][1]["text"] == "Wild":
                         symbols[1] = symbols[1] + 1
                         if reel_text[14][1]["text"] == symbols[0]:
                             symbols[1] = symbols[1] + 1
-                            payout_table(symbols[0], 7)
+                            payout_table(symbols[0], 5)
                         elif reel_text[14][1]["text"] == "Wild":
                             symbols[1] = symbols[1] + 1
-                            payout_table(symbols[0], 7)
+                            payout_table(symbols[0], 5)
                     else:
                         # print("Add 5 Credits")
-                        payout_table(symbols[0], 5)
+                        payout_table(symbols[0], 3)
                         print(symbols[1])
                 elif reel_text[8][1]["text"] == "Wild":
                     symbols[1] = symbols[1] + 1 
@@ -1096,32 +1097,32 @@ def line5():
                         if reel_text[14][1]["text"] == symbols[0]:
                             symbols[1] = symbols[1] + 1
                             print(symbols[1])
-                            payout_table(symbols[0], 7)
+                            payout_table(symbols[0], 5)
                         elif reel_text[14][1]["text"] == "Wild":
                             symbols[1] = symbols[1] + 1
                             print(symbols[1])
-                            payout_table(symbols[0], 7)
+                            payout_table(symbols[0], 5)
                         else:
                             # print("Add 6 Credits")
-                            payout_table(symbols[0], 6)
+                            payout_table(symbols[0], 4)
                             print(symbols[1])              
                     elif reel_text[11][1]["text"] == "Wild":
                         symbols[1] = symbols[1] + 1
                         if reel_text[14][1]["text"] == symbols[0]:
                             symbols[1] = symbols[1] + 1
                             print(symbols[1])
-                            payout_table(symbols[0], 7)
+                            payout_table(symbols[0], 5)
                         elif reel_text[14][1]["text"] == "Wild":
                             symbols[1] = symbols[1] + 1
                             print(symbols[1])
-                            payout_table(symbols[0], 7)
+                            payout_table(symbols[0], 5)
                         else:
                             # print("Add 6 Credits")
-                            payout_table(symbols[0], 6)
+                            payout_table(symbols[0], 4)
                             print(symbols[1])     
                     else:
                         # print("Add 5 Credits")
-                        payout_table(symbols[0], 5)
+                        payout_table(symbols[0], 3)
                 else:
                     print("No Win")
                     print(symbols[1])
@@ -1136,30 +1137,30 @@ def line5():
                         if reel_text[14][1]["text"] == symbols[0]:
                             symbols[1] = symbols[1] + 1
                             print(symbols[1])
-                            payout_table(symbols[0], 7)
+                            payout_table(symbols[0], 5)
                         elif reel_text[14][1]["text"] == "Wild":
                             symbols[1] = symbols[1] + 1
                             print(symbols[1])
-                            payout_table(symbols[0], 7)
+                            payout_table(symbols[0], 5)
                         else:
                             # print("Add 6 Credits")
-                            payout_table(symbols[0], 6)
+                            payout_table(symbols[0], 4)
                     elif reel_text[11][1]["text"] == "Wild":
                         symbols[1] = symbols[1] + 1
                         if reel_text[14][1]["text"] == symbols[0]:
                             symbols[1] = symbols[1] + 1
                             print(symbols[1])
-                            payout_table(symbols[0], 7)
+                            payout_table(symbols[0], 5)
                         elif reel_text[15][1]["text"] == "Wild":
                             symbols[1] = symbols[1] + 1
                             print(symbols[1])
-                            payout_table(symbols[0], 7)
+                            payout_table(symbols[0], 5)
                         else:
                             # print("Add 6 Credits")
-                            payout_table(symbols[0], 6)
+                            payout_table(symbols[0], 4)
                     else:
                         # print("Add 5 Credits")
-                        payout_table(symbols[0], 5)
+                        payout_table(symbols[0], 3)
                 elif reel_text[8][1]["text"] == "Wild":
                     symbols[1] = symbols[1] + 1 
                     if reel_text[11][1]["text"] == symbols[0]:
@@ -1167,30 +1168,30 @@ def line5():
                         if reel_text[14][1]["text"] == symbols[0]:
                             symbols[1] = symbols[1] + 1
                             print(symbols[1])
-                            payout_table(symbols[0], 7)
+                            payout_table(symbols[0], 5)
                         elif reel_text[14][1]["text"] == "Wild":
                             symbols[1] = symbols[1] + 1
                             print(symbols[1])
-                            payout_table(symbols[0], 7)
+                            payout_table(symbols[0], 5)
                         else:
                             # print("Add 6 Credits")
-                            payout_table(symbols[0], 6)
+                            payout_table(symbols[0], 4)
                     elif reel_text[11][1]["text"] == "Wild":
                         symbols[1] = symbols[1] + 1
                         if reel_text[14][1]["text"] == symbols[0]:
                             symbols[1] = symbols[1] + 1
                             print(symbols[1])
-                            payout_table(symbols[0], 7)
+                            payout_table(symbols[0], 5)
                         elif reel_text[14][1]["text"] == "Wild":
                             symbols[1] = symbols[1] + 1
                             print(symbols[1])
                             payout_table(symbols[0], 7)
                         else:
                             # print("Add 6 Credits")
-                            payout_table(symbols[0], 6)
+                            payout_table(symbols[0], 4)
                     else:
                         # print("Add 5 Credits")
-                        payout_table(symbols[0], 5)
+                        payout_table(symbols[0], 3)
                 else:
                     print("No Win")
                     print(symbols[1])
